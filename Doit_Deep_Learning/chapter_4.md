@@ -11,6 +11,8 @@
 
     z = w<sub>1</sub>x<sub>1</sub> + w<sub>2</sub>x<sub>2</sub> + ... + w<sub>n</sub>x<sub>n</sub>+ b
 
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83376888-d2b81c00-a40e-11ea-92d6-078104da9934.png" width="50%"></p>
+
 # 아달린
 1. 아달린(Adaline)은 퍼샙트론은 개선한 적응형 선형뉴런(Adaptive Linear Neuron)으로 선형함수의 결과를 학습에 사용하며, 계단함수의 결과는 예측에만 활용한다.
 2. 아달린의 퍼셉트론의 차이는 선형함수의 결과를 학습에 사용하는가 계단함수의 결과를 학습에 사용하는가 이다.
@@ -31,16 +33,22 @@
 1. 성공확률과 실패 확률의 비율을 나타내는 통계 ==> OR = p/1-p(p=성공 확률)
 2. 오즈 비는 처음에는 천천히 증가하지만 p의 값이 1에 가까워지면 급격히 증가한다.
 
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83377113-8f11e200-a40f-11ea-9d70-790f075274bd.png" width="30%"></p>
+
 # 로짓 함수(logit function)
 1. 오즈 비에 로그(자연 로그)를 취하여 만든 함수이다.
 2. logit(p) = log(p/1-p)
 3. p가 0.5이면 0이되고, 0과 1일때 각각 무한대로 음수와 양수가 되는 성질을 가지고 있다.
 4. y축이 z라면 log(p/1-p) = z가 된다
 
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83377307-237c4480-a410-11ea-9874-ff8c689d0927.png" width="30%"></p>
+
 # 로지스틱 함수(sigmoid function)
 1. 위 식을 z에 대해 정리한 p = 1/1+e^-z 이며 이는 x축을 z로 두기 위함이다.
 2. 로지스틱 함수는 로짓 함수의 가로축과 세로축을 뒤집은 모양이 되며 이는 S자 모양이 된다.
 3. 이 모양에서 착안하여 로지스틱 함수를 시그모이드 함수라고 한다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83377332-3a229b80-a410-11ea-8c0d-fb373d0a70b1.png" width="30%"></p>
 
 # 로지스틱 회귀
 1. 로지스틱 회귀는 이진 분류가 목표이며, -&infin; ~ &infin;의 범위를 가지는 z의 값을 조절할 방법이 필요해서 시그모이드 함수를 활성 함수로 사용한 것이다.
