@@ -1,4 +1,4 @@
-<아래 내용은 SEBASTIAN RUDER의 글을 참고하여 작서한 내용입니다.>
+<아래 내용은 SEBASTIAN RUDER의 글을 참고하여 작성한 내용입니다.>
 
 ## 딥러닝에서의 3가지 문제
 1. 학습이 잘 안된다(underfitting)
