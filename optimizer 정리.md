@@ -1,11 +1,11 @@
 <아래 내용은 SEBASTIAN RUDER의 글을 참고하여 작서한 내용입니다.>
 
-### 딥러닝에서의 3가지 문제
+## 딥러닝에서의 3가지 문제
 1. 학습이 잘 안된다(underfitting)
 2. 학습이 너무 느리다(slow)
 3. 학습된 모델이 융통성이 없다(overfitting)
 
-### 학습이 잘 안되는 경우
+## 학습이 잘 안되는 경우
 * 학습시 사용하는 Activation function은 Sigmoid함수로 이를 그래프로 나타내면 아래와 같다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83487569-36614880-a4e6-11ea-9840-937411d8fb5e.png" width="30%"></p>
@@ -18,7 +18,7 @@
 
 * ReLU함수는 위 그림에서 보듯이 양수의 값에서 미분한 기울기가 1인 함수이다.
 
-### 학습이 너무 느림
+## 학습이 너무 느림
 * 이를 해결하기 위해 여러 옵티마이져(optimizers)들이 만들어졌다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83487752-922bd180-a4e6-11ea-9590-8458b17c93d8.png" width="50%"></p>
@@ -29,7 +29,7 @@
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83488028-1aaa7200-a4e7-11ea-8f94-47a0dbad653c.gif" width="50%"></p>
 
-#### Gradient Descent
+### Gradient Descent
 > * 네트워크의 parameter들을 &theta;라고 했을 때, 네트워크에서 내놓는 결과값과 실제 결과값 사이의 차이를 정의하는 함수 Loss function J(&theta;)의 값을 최소화하기 위해 기울기(gradient) &nabla;<sub>&theta;</sub>J(&theta;)를 이용하는 방법이다.
 >  * Gradient Descent에서는 &theta; 에 대해 gradient의 반대 방향으로 일정 크기만큼 이동해내는 것을 반복하여 Loss function J(&theta;) 의 값을 최소화하는 &theta; 의 값을 찾는다.
 
@@ -39,12 +39,12 @@
 > * 위 방법은 한번 step을 내딛을 때 전체 데이터에 대해 Loss Function을 계산해야 하므로 너무 많은 계산량이 필요하다.
 > *  이를 해결하기 위해 보통은 **Stochastic Gradient Descent (SGD)** 라는 방법을 사용한다.
 
-#### SGD(Stochastic Gradient Descent)
+### SGD(Stochastic Gradient Descent)
 > * loss function을 계산할 때 전체 데이터(batch) 대신 일부 조그마한 데이터의 모음(mini-batch)에 대해서만 loss function을 계산한다.
 > * batch gradient descent 보다 다소 부정확할 수는 있지만, 훨씬 계산 속도가 빠르기 때문에 같은 시간에 더 많은 step을 갈 수 있으며 여러 번 반복할 경우 보통 batch의 결과와 유사한 결과로 수렴한다. 
 > * SGD를 사용할 경우 Batch Gradient Descent에서 빠질 local minima에 빠지지 않고 더 좋은 방향으로 수렴할 가능성도 있다.
 
-#### Momentum
+### Momentum
 > * Momentum 방식은 Gradient Descent를 통해 이동하는 과정에 일종의 ‘관성’을 주는 것이다.
 > * 현재 Gradient를 통해 이동하는 방향과는 별개로, 과거에 이동했던 방식을 기억하면서 그 방향으로 일정 정도를 추가적으로 이동하는 방식이다.
 > * v<sub>t</sub>를 time step t에서의 이동 벡터라고 할 때, 다음과 같은 식으로 이동을 표현할 수 있다.
@@ -67,7 +67,7 @@
 > * SGD를 이용할 경우 좌측의 local minima에 빠지면 gradient가 0이 되어 이동할 수가 없지만, momentum 방식의 경우 기존에 이동했던 방향에 관성이 있어 이 local minima를 빠져나오고 더 좋은 minima로 이동할 것을 기대할 수 있게 된다.
 > * momentum의 단점은 momentum 방식을 이용할 경우 기존의 변수들 θ 외에도 과거에 이동했던 양을 변수별로 저장해야하므로 변수에 대한 메모리가 기존의 두 배로 필요하게 된다.
 
-#### Nesterov Accelerated Gradient (NAG)
+### Nesterov Accelerated Gradient (NAG)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83488700-424e0a00-a4e8-11ea-9153-f0f7d0de50bf.png" width="70%"></p>
 
@@ -79,7 +79,7 @@
 > * Momentum 방식의 경우 멈춰야 할 시점에서도 관성에 의해 훨씬 멀리 갈수도 있다는 단점이 존재하는 반면, NAG 방식의 경우 일단 모멘텀으로 이동을 반정도 한 후 어떤 방식으로 이동해야할 지를 결정한다.
 > * 따라서 Momentum 방식의 빠른 이동에 대한 이점은 누리면서도, 멈춰야 할 적절한 시점에서 제동을 거는 데에 훨씬 용이하다고 생각할 수 있을 것이다.
 
-#### Adagrad
+### Adagrad
 > * Adagrad(Adaptive Gradient)는 변수들을 update할 때 각각의 변수마다 step size를 다르게 설정해서 이동하는 방식이다.
 > * 이 알고리즘의 기본적인 아이디어는 ‘지금까지 많이 변화하지 않은 변수들은 step size를 크게 하고, 지금까지 많이 변화했던 변수들은 step size를 작게 하자’ 라는 것이다.
 > * 자주 등장하거나 변화를 많이 한 변수들의 경우 optimum에 가까이 있을 확률이 높기 때문에 작은 크기로 이동하면서 세밀한 값을 조정하고, 적게 변화한 변수들은 optimum 값에 도달하기 위해서는 많이 이동해야할 확률이 높기 때문에 먼저 빠르게 loss 값을 줄이는 방향으로 이동하려는 방식이라고 생각할 수 있다.
@@ -97,14 +97,14 @@
 > * G에는 계속 제곱한 값을 넣어주기 때문에 G의 값들은 계속해서 증가하기 때문에, 학습이 오래 진행될 경우 step size가 너무 작아져서 결국 거의 움직이지 않게 된다.
 > * 이를 보완하여 고친 알고리즘이 RMSProp과 AdaDelta이다.
 
-#### RMSProp
+### RMSProp
 > * RMSProp은 딥러닝의 대가 제프리 힌톤이 제안한 방법으로서, Adagrad의 단점을 해결하기 위한 방법이다.
 > * Adagrad의 식에서 gradient의 제곱값을 더해나가면서 구한 G<sub>t</sub> 부분을 합이 아니라 지수평균으로 바꾸어서 대체한 방법이다.
 > * 이렇게 대체를 할 경우 Adagrad처럼 G<sub>t</sub>가 무한정 커지지는 않으면서 최근 변화량의 변수간 상대적인 크기 차이는 유지할 수 있다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83488948-a4a70a80-a4e8-11ea-8244-3b46cdbb86ca.png" width="30%"></p>
 
-#### AdaDelta
+### AdaDelta
 > * AdaDelta (Adaptive Delta) 는 RMSProp과 유사하게 AdaGrad의 단점을 보완하기 위해 제안된 방법이다.
 > * 과거의 모든 제곱 된 그라디언트를 축적하는 대신 Adadelta는 축적 된 과거의 그라데이션의 창을 고정 된 크기로 제한한다.
 > * 이전의 제곱 된 그라디언트를 비효율적으로 저장하는 대신에, 그라디언트의 합계는 모든 과거 제곱 된 그라디언트의 부식 평균으로 재귀 적으로 정의된다.
@@ -146,7 +146,7 @@
 
 > * Adadelta를 사용하면 업데이트 규칙에서 제거되었으므로 기본 학습 속도를 설정할 필요조차 없다.
 
-#### Adam(Adaptive Momentum Estimation)
+### Adam(Adaptive Momentum Estimation)
 > * Adam (Adaptive Moment Estimation)은 RMSProp과 Momentum 방식을 합친 것 같은 알고리즘이다.
 > * momentum의 개념을 이용하지만, w<sub>ij</sub>에 대한 momentum인 v<sup>(t)</sup><sub>ij</sub>과 learning rate를 조절하는 g<sup>(t)</sup><sub>ij</sub>는 다음과 같이 지수 이동 평균으로 계산된다.
 
@@ -161,7 +161,7 @@
 
 > * 보통 β1 로는 0.9, β2로는 0.999, ϵ 으로는 10−8 정도의 값을 사용한다고 한다.
 
-#### AdaMax
+### AdaMax
 > * AdaMax는 Adam 논문에서 extension으로 제안된 알고리즘이다.
 > * Adam은 식 (14)와 같이 L2 norm을 기반으로 learning rate를 조절한다.
 > * AdaMax는 L2 norm을 기반으로 learning rate를 조절하는 부분을 Lp norm으로 확장시킨 알고리즘이다.
