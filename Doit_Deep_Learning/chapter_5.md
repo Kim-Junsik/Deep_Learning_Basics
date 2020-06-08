@@ -26,7 +26,7 @@
 ## 데이터 전처리(data preprocessing)
 * 잘 정리된 데이터도 전처리가 필요한 경우가 있는데 이는 데이터 특성의 스케일이 다른 경우이다
 
-<스케일 다른 이미지>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994054-4074c280-a990-11ea-8dcf-3d02a5635506.png" width="50%"></p>
 
 ## 데이터 특성의 스케일(data scale)
 * 어떤 특성이 가지고 있는 값의 범위
@@ -38,7 +38,7 @@
 * 만약 가중치를 큰 폭으로 업데이트하여 손실 함수가 최소가 될 수 있는 지점인 전역 최솟값을 지나쳐 버리게 되면, 최적의 해(최적의 가중치와 절편)를 구할 수가 없다.
 * 따라서 전역 최솟값을 놓치치 않도록 가중치의 업데이트 양을 조절할 필요가 있다.
 
-<가중치 이미지_1>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994114-67cb8f80-a990-11ea-962a-c21fec39fd50.png" width="50%"></p>
 
 * 가중치의 최적값에 도달하는 동안 w3값이 크게 요동치므로 모델이 불안정하게 수렴한다는 것을 알 수 있다.
 * 이는 스케일 조정으로 해결할 수 있다.
@@ -52,11 +52,11 @@
 ### 표준편차
 * 표준편차는 데이터가 얼마나 흩어져 있는지를 나타내는 지표로, 분산(variance)의 제곱근이다.
 
-<표준편차 이미지>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994172-8c276c00-a990-11ea-8af4-f99662d85b08.png" width="20%"></p>
 
-<가중치 이미지_2>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994190-9d707880-a990-11ea-9683-373f043374e9.png" width="50%"></p>
 
-<스케일된 이미지_1><스케일된 이미지_2>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994203-a4978680-a990-11ea-9cd9-561bc5857a37.png" width="40%"><img src="https://user-images.githubusercontent.com/46274774/83994219-aa8d6780-a990-11ea-9895-1d4ab11b705b.png" width="40%"></p>
 
 * 두 그래프를 보면 훈련 데이터와 검증 데이터가 다른 비율로 표준화된 것을 볼 수 있다.
 * 원본 훈련 데이터와 원본 검증 데이터의 그래프에서의 거리는 변환후에도 같아야 한다.
@@ -90,12 +90,20 @@
 ## L1규제
 * 손실 함수에 가중치의 절댓값인 L1노름(norm)을 추가한다.
 
-<L1 노름 이미지>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994408-50d96d00-a991-11ea-9494-636fc819c911.png" width="15%"></p>
 
 * L1노름의 n은 가중치의 개수를 의미하므로, L1규제를 가중치의 절댓값을 손실 함수에 더한것으로 보아도 된다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994479-867e5600-a991-11ea-94df-2111fbd1d142.png" width="35%"></p>
+
 * 손실 함수에 L1 노름을 더하면 L1규제가 만들어 진다. 이때 L1노름을 그냥 더하지 않고 &alpha;값을 곱해서 더하는데 &alpha;값은 규제의 양을 조절하는 하이퍼 파라미터이다.
 * &alpha;값이 커지면 전체 손실 함수의 값이 커지지 않도록 가중치의 합이 작아져야 한다 (규제가 강해졌다 --> 가중치가 작아졌으므로)
 * &alpha;의 값이 작아지면 손실 함수의 값이 커지므로 규제가 약해졌다고 한다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994530-ab72c900-a991-11ea-88f1-ec3adbc4a90f.png" width="35%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994588-d3fac300-a991-11ea-9249-471a908dcd15.png" width="35%"></p>
+
 * 절편에 대해 규제를 하지 않는 이유는 절편은 모델에 영향을 미치는 방식이 가중치와 달라서 이다. 절편을 규제하면 모델을 어떤 방향으로 이동시킬 뿐 복잡도에는 영향을 주지 않는다.
 * 회귀 모델에 L1규제를 적용 --> 라쏘(Lasso)
 * 라쏘는 가중치를 줄이다 못해 0으로 만들 수도 있다. 가중치가 0인 특성은 모델에서 사용할 수 없다는 것과 같다. 즉 특성을 선택할 수 있다는 효과를 얻을 수 있다.
@@ -103,13 +111,26 @@
 
 ## L2규제
 * 손실 함수에 L2노름의 제곱을 더하면 L2규제이다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994745-52effb80-a992-11ea-94c9-281e403217b7.png" width="15%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994837-83d03080-a992-11ea-8341-b257de33292d.png" width="35%"></p>
+
 * &alpha;는 규제의 양을 조절하기 위한 하이퍼 파라미터 이다.
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994874-a6624980-a992-11ea-90f2-77aff391c340.png" width="30%"></p>
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994926-d4478e00-a992-11ea-9833-065ec435e8c9.png" width="35%"></p>
+
 * L2규제를 미분하면 간단히 가중치 벡터인 w만 남는다.
 * L2규제는 그레디언트 계산에 가중치의 값 자체가 포함되므로 가중치의 부호만 사용하는 L1규제 보다 조금 더 효과적이다.
 * L2규제는 가중치를 완전히 0으로 만들지 않는다. 가중치를 0으로 만들면 특성을 제외하는 효과는 있지만, 모델의 복잡도가 떨어진다.
 * 회귀 모델에 L2규제를 적용하면 릿지(Ridge)가 된다.
 
 # K-폴드 교차 검증
+
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/83994982-00fba580-a993-11ea-87ac-909503e2d4aa.png" width="50%"></p>
+
 * 샘플 개수가 많지 않을때 검증 세트를 훈련 세트에서 분립하는라 훈련 세트의 샘플 개수가 줄어들어 모델을 훈련시킬 데이터가 부족해지는 경우 교차 검증을 사용한다.
 * 훈련 세트를 동일한 크기의 폴드가 K개가 되도록 나눈다
 * 각 폴드를 검증을 하기 위해 사용하고 나머지 폴드들은 훈련을 하기 위해 사용된다. 이 과정을 k번 반복하여 모델을 만든다.
