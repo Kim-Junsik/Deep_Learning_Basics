@@ -163,20 +163,20 @@
 
 ### AdaMax
 > * AdaMax는 Adam 논문에서 extension으로 제안된 알고리즘이다.
-> * Adam은 식 (14)와 같이 L2 norm을 기반으로 learning rate를 조절한다.
-> * AdaMax는 L2 norm을 기반으로 learning rate를 조절하는 부분을 Lp norm으로 확장시킨 알고리즘이다.
-> * 한 가지 문제점은 p가 매우 클 경우, Lp norm은 극단적인 값을 갖는 등 매우 불안정하다는 것이다.
+> * Adam은 식 g<sup>(t)</sup><sub>ij</sub>와 같이 L<sub>2</sub> norm을 기반으로 learning rate를 조절한다.
+> * AdaMax는 L<sub>2</sub> norm을 기반으로 learning rate를 조절하는 부분을 L<sub>p</sub> norm으로 확장시킨 알고리즘이다.
+> * 한 가지 문제점은 p가 매우 클 경우, L<sub>p</sub> norm은 극단적인 값을 갖는 등 매우 불안정하다는 것이다.
 > * 그러나 Adam 논문의 저자는 p가 무한대로 갈 때, 매우 간단하고 안정적인 알고리즘이 만들어지는 것을 다음과 같이 보여준다.
-> * 먼저, Adam에서 learning rate를 조절하는 g(t)ij는 AdaMax에서 다음과 같이 Lp norm으로 확장된다.
+> * 먼저, Adam에서 learning rate를 조절하는 g<sup>(t)</sup><sub>ij</sub>는 AdaMax에서 다음과 같이 L<sub>p</sub> norm으로 확장된다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83489494-6e1dbf80-a4e9-11ea-978a-81460f8d9d0b.png" width="50%"></p>
 
-> * AdaMax를 제안한 논문에서는 p가 무한대로 갈 때의 (g(t)ij)1/p를 다음과 같이 G(t)ij로 정의한다.
+> * AdaMax를 제안한 논문에서는 p가 무한대로 갈 때의 (g<sup>(t)</sup><sub>ij</sub>)<sup>1/p</sup>를 다음과 같이 G<sup>(t)</sup><sub>ij</sub>로 정의한다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83489507-74ac3700-a4e9-11ea-9ebf-696772115e13.png" width="30%"></p>
 
-> * 그 다음, wij를 다음과 같이 update한다.
+> * 그 다음, w<sub>ij</sub>를 다음과 같이 update한다.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/46274774/83489517-7a098180-a4e9-11ea-9f45-52cb2a5656ea.png" width="30%"></p>
 
-> * 이 때 v(t)ij는 Adam에서처럼 식 (15)와 같이 정의되며, 일반적으로 β1과 β2는 각각 0.9와 0.999로 설정된다.
+> * 이 때 v<sup>(t)</sup><sub>ij</sub>는 Adam에서처럼 v_hat<sup>(t)</sup><sub>ij</sub>와 같이 정의되며, 일반적으로 β1과 β2는 각각 0.9와 0.999로 설정된다.
