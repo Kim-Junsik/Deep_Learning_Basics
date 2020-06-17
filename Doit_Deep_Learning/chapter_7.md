@@ -1,13 +1,13 @@
 # 다중 분류 신경망
 ## 소프트 맥스 함수(softmax function)
 
-<다중분류 신경망 사진>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/84625414-29008100-af1e-11ea-92b0-1b4e09c5a5ea.png" width="35%"></p>
 
 * 다중 분류 산경망을 만들기 위해 소프트 맥스(softmax)함수와 크로스 엔트로피(cross entropy)손실 함수를 사용한다.
 * 이진 분류는 양성 클래스에 대한 확률 &ycirc;만 가지고 출력하면 됬지만 다중 분류는 클래스마다 확률 값을 출력한다.
 * 다중 분류 산경망은 출력층에 분류할 클래스 개수만큼의 뉴런을 배치한다.
   
-<소프트 맥스 함수 사진>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/84856523-e962a200-b0a1-11ea-9618-a155ae21d944.png" width="55%"></p>
 
 * 만약 출력값이 80%, 70%, 50%라고 나올경우 이는 확실하게 어느 클래스인지 공정하게 비교하는 것이 어렵다.
 * 따라서, 소프트 맥스 함수를 사용한다, 소프트 맥스 함수는 출력의 강도를 정규화한다. 즉 출력의 합을 1로 만든다.
@@ -16,7 +16,7 @@
 
 ## 크로스 엔트로피 손실 함수(cross entropy loss function)
 
-<크로스 엔트로피 손실 함수 사진>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/84856562-05664380-b0a2-11ea-96e1-a51773210304.png" width="25%"></p>
 
 * 크로스 엔트로피 손실 함수의 이진 분류 버전이 로지스틱 손실 함수이다. 
 * 시그마 기호는 전체 클래스의 개수를 의미한다.
@@ -28,15 +28,13 @@
 ### 크로스 엔트로피 손실 함수의 미분
 * 시그모이드와 달리 소프트맥스 함수는 출력 a<sub>1</sub>,a<sub>2</sub>,a<sub>3</sub>가 모두 z<sub>1</sub>의 함수이고, 손실함수 L이 a<sub>1</sub>,a<sub>2</sub>,a<sub>3</sub>에 대한 함수이므로 연쇠법칙은 다음과 같다.
 
-<미분과정 사진_1>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/84856583-14e58c80-b0a2-11ea-8036-494ef07f8ec4.png" width="45%"></p>
 
-<미분과정 사진_2>
-
-<미분과정 사진_3>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/84856594-1ca53100-b0a2-11ea-96e2-bdb343bd86d3.png" width="45%"></p>
 
 * 여기서 y<sub>1</sub>+y<sub>2</sub>+y<sub>3</sub>는 타깃의 합으로 이는 1이다.
 * 즉 z<sub>1</sub>에대한 미분은 -(y<sub>1</sub>-a<sub>1</sub>), z<sub>2</sub>의 미분은 -(y<sub>2</sub>-a<sub>2</sub>), z<sub>3</sub>의 미분은 -(y<sub>3</sub>-z<sub>3</sub>)
 * 즉 위 식을 벡터 z에 대해 정리하면 다음과 같다.
 
-<이미지>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/84856603-229b1200-b0a2-11ea-9cf3-001c5217a6e0.png" width="25%"></p>
 
