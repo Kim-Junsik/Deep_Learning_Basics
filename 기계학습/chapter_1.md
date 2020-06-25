@@ -4,7 +4,7 @@
   * 회귀 : 실수값을 예측하는 문제
   * 분류 : 부류를 예측하는 문제
 
-<회귀 그래프>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/85683100-e00fb000-b707-11ea-846b-5b3a5df6e427.png" width="35%"></p>
 
 * 위 그래프에서 x축은 입력 패턴에 해당하며, y축은 패턴이 가져야 할 목표값(target value)이다.
 * 기계학습에서는 x축에 해당하는 패턴을 특징(feature)이라고 하며, 특징은 <b>x</b>, 목표값을 y로 표기한다.
@@ -30,7 +30,7 @@
 * 선형 회귀(linear regression) : 선형회귀는 y = wx + b라는 직선 모델을 사용하므로 추정해야 할 매개변수는 w,b 2개이다.
 * 여기서 초기 w와 b는 난수를 생성하며 이를 사용하여 최적의 w와 b를 찾으며, 이때 최적의 &theta;(w와 b)를 찾기위해 목적함수(objective function), 비용함수(cost function)을 사용한다.
 
-<mse 이미지>
+<p align="center"><img src="https://user-images.githubusercontent.com/46274774/85683135-eb62db80-b707-11ea-9163-380357f7ea09.png" width="25%"></p>
 
 * 위 식에서 y<sub>i</sub> - y 는 오차를 나타낸다.
 * 기계 학습 알고리즘은 목적함숫값이 작아지는 방향을 찾아 매개변숫값을 조정하는 일을 반복하는데, 목적함수가 0.0또는 0.0에 아주 가까운 값으로 수렴하면 그때 학습을 마친다.
